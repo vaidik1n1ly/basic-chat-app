@@ -1,0 +1,34 @@
+# Python bytecode and cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# Logs and runtime files
+*.log
+*.out
+*.pid
+
+# Environment variables and secrets
+.env
+*.env
+
+# IDE and editor configurations
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+
+#docker
+dockerfile
+docker-compose.yml
