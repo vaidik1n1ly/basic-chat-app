@@ -27,8 +27,3 @@ ENV/
 # Operating system files
 .DS_Store
 Thumbs.db
-
-
-#docker
-dockerfile
-docker-compose.yml

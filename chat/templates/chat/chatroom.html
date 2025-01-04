@@ -31,7 +31,7 @@
             </div>
         </div>
     </div>
-    
+
     {{ room_name | json_script:"room-name"}}
     {{ request.user.username | json_script:"user_username" }}
 
@@ -51,7 +51,7 @@
                 let messages = document.getElementById('messages')
 
                 messages.insertAdjacentHTML('afterbegin', `<div>
-                        <p><span class="badge badge-secondary">${data.username}</span>: ${data.message}</p>
+                        <p><span class="badge bg-secondary">${data.username}</span>: ${data.message}</p>
                     </div>`)
             }
         }
