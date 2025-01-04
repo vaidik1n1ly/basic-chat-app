@@ -1,7 +1,7 @@
 # basic-chat-app
 > Requires `redis` to run on host pc or docker container.
 
-### Steps to Setup
+### Steps to Setup Django
 
 1. Clone the repository:
 
@@ -31,3 +31,25 @@
    python manage.py runserver
 
 6. Visit the site in your browser at http://127.0.0.1:8000.
+
+---
+### Steps to setup `redis`
+
+1. Install `docker desktop`
+   ```
+   https://docs.docker.com/desktop/setup/install/windows-install/
+
+3. Create `docker-compose.yml` file on app root directory with following content:
+   ```yml
+   services:
+       redis:
+           image: redis:latest
+           container_name: redis
+           ports:
+               - "6379:6379"
+
+4. build and run docker container
+   ```cmd
+   docker-compose build
+   docker-compose up
+   docker-compose up -d
