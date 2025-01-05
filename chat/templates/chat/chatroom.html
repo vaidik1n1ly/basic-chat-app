@@ -47,12 +47,32 @@
             let data = JSON.parse(e.data)
             console.log('Data:',data)
 
-            if(data.type === 'chat'){
+            if (data.type === 'chat') {
                 let messages = document.getElementById('messages')
 
                 messages.insertAdjacentHTML('afterbegin', `<div>
                         <p><span class="badge bg-secondary">${data.username}</span>: ${data.message}</p>
                     </div>`)
+            }
+
+            if (data.type === 'error') {
+            
+                let messages = document.getElementById('messages')
+
+                messages.insertAdjacentHTML('afterbegin', `<div>
+                        <span class="badge bg-danger"> Error: ${data.message}</span>
+                    </div>`)
+                
+                console.error('Error from server:', data.message);
+                alert(`Connection Error: ${data.message}`);
+            }
+        }
+
+        chatSocket.onclose = function(e) {
+            if (e.wasClean) {
+                console.log(`WebSocket closed cleanly, code=${e.code}`);
+            } else {
+                console.error('WebSocket closed unexpectedly.');
             }
         }
 
