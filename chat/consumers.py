@@ -5,9 +5,10 @@ import re
 class ChatRoomConsumer(AsyncWebsocketConsumer):
     async def connect(self):
         self.room_name = self.scope['url_route']['kwargs']['room_name']
+        self.room_name = re.sub(r'[^a-zA-Z0-9_.\-]','_', self.room_name)   # replace spaces with underscore
 
         # validate room name
-        if not re.match(r'^[a-zA-Z0-9_\-@#\.]+$', self.room_name):
+        if not re.match(r'^[a-zA-Z0-9_.\-]+$', self.room_name):
             self.room_group_name = 'error_chatroom'
             await self.accept()
             await self.send(json.dumps({
